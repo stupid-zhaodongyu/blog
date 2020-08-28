@@ -1,14 +1,14 @@
 // routes/index.js
 var express = require('express');
 var router = express.Router();
-//var User = require('../models/users');
+var User = require('../models/users');
  
 /* /根路径 跳转至login.html */
-router.get('/a', function(req, res, next) {
+router.get('/', function(req, res, next) {
   res.sendfile('./views/login.html'); 
 });
 /* /a 跳转至register.html */
-router.get('/b', function(req, res, next) {
+router.get('/a', function(req, res, next) {
   res.sendfile('./views/register.html'); 
 });
  
@@ -38,6 +38,7 @@ router.post('/login', function (req, res) {
         }
     } )
 });
+// routes/index.js
 
 router.post('/register', function (req, res) {
 
