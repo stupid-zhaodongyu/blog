@@ -20,4 +20,6 @@ var userSchema = new Schema({
     }
 });
 // 将数据模型暴露出去
-module.exports = mongoose.model('users', userSchema);
+var model = mongoose.model('usersdfaf', userSchema);
+
+module.exports = model;
