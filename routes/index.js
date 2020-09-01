@@ -22,21 +22,12 @@ router.get('/register', function (req, res) {
  
 // 这里的业务逻辑将写在 两个post 路由里 
 router.post('/login', function (req, res) {
-	var postData = {
-        username: req.body.username,
-        password: req.body.password
+	var user = {
+        username: "admin",
+        password: "admin"
     };
-    User.findOne({
-        username: postData.username,
-        password: postData.password
-    }, function (err, data) {
-        if(err) throw err;
-        if(data){
-            res.send('登录成功');
-        }else{
-            res.send('账号或密码错误')
-        }
-    } )
+    (req.body.username==user.username&&req.body.password==user.password)
+    res.send(200);
 });
 // routes/index.js
 
@@ -58,7 +49,10 @@ router.post('/register', function (req, res) {
             User.create(postData, function (err, data) {
                 if (err) throw err;
                 console.log('注册成功');
-                res.redirect('/userList');      // 重定向到所用用户列表
+                console.log(req.path);                      
+                //res.redirect('/userList');      // 重定向到所用用户列表
+                // res.render("login");                
+                res.redirect("http://www.hubwiz.com");
             })
         }
     });
