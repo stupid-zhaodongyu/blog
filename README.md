@@ -5,5 +5,3 @@ gsg
 aggagag
 aaa
 bbb
-
-d
